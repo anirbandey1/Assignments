@@ -8,8 +8,13 @@ typedef struct Node{
 
 Node* newNode(int data){
 	Node* node=(Node*)malloc(sizeof(Node));
+    if(node==NULL){
+        printf("STACK OVERFLOW \n");
+        return NULL;
+    }
 	node->val=data;
 	node->next=NULL;
+    return node;
 }
 
 Node* inputList(Node* head){
@@ -36,6 +41,10 @@ Node* inputList(Node* head){
 
 void printList(Node* head){
 
+    if(head==NULL){
+        printf("Linked List is Empty \n");
+        return ;
+    }
 	printf("LINKED LIST : ");
 	while(head)
 	{
@@ -50,6 +59,7 @@ int count(Node*head){
 	int cnt=0;
 	while(head){
 		head=head->next;
+        cnt++;
 	}
 	return cnt;
 }
@@ -106,7 +116,7 @@ Node *insert(Node*head,int data,int pos)
 	ptr=head;
 
 	int i;
-	for(i=0;i<pos;i++)
+	for(i=1;i<pos;i++)
 	{
 		prev=ptr;
 		ptr=ptr->next;
@@ -119,7 +129,7 @@ Node *insert(Node*head,int data,int pos)
 	return head;
 }
 
-Node *delete(Node*head,int key){
+Node* delete(Node*head,int key){
 
 	Node*prev,*ptr,*temp;
 	prev=NULL;
@@ -207,7 +217,7 @@ int main(){
 }
 */
 
-
+/*
 int main(){
 
 	Node* head;
@@ -220,15 +230,6 @@ int main(){
 	while(ch!='9')
 	{
 
-		printf("Press 1 for Insert at Beginning \n");
-		printf("Press 2 for Insert at End \n ");
-		printf("Press 3 to Insert at a particular position \n");
-		printf("Press 4 to Delete a node at a particular positon \n");
-		printf("Press 5 to Print the List \n");
-		printf("Press 6 to Reverse the List \n");
-		printf("Press 7 to Count the Number of Elements \n");
-		printf("Press 9 to Exit");
-
 		if(ch=='1'){
 
 
@@ -237,4 +238,97 @@ int main(){
 	}
 	
 	return 0;
+}
+*/
+
+int getData()
+{
+    printf("Enter the data : ");
+    int data = -1;
+    scanf("%d", &data);
+    return data;
+}
+
+int getPos()
+{
+    printf("Enter the position : ");
+    int data = -1;
+    scanf("%d", &data);
+    return data;
+}
+int getChoice()
+{
+    printf("Enter your choice : ");
+    int data = -1;
+    scanf("%d", &data);
+    return data;
+}
+
+void prompt()
+{
+    printf("\n");
+	printf("Press 1 to Print the List \n");
+	printf("Press 2 to Count the Number of Elements \n");
+	printf("Press 3 to Reverse the List \n");
+   	printf("Press 4 to Insert at the Beginning \n");
+	printf("Press 5 to Insert at the End \n");
+	printf("Press 6 to Insert at a particular position \n");
+	printf("Press 7 to Delete the node with a particular value \n");
+    printf("Press 9 to Exit");
+    printf("\n");
+}
+
+
+
+int main()
+{
+
+    Node *head=NULL;
+    head=inputList(head);
+    int ch = -1;
+    int data = -1,pos=0;
+    while (ch != 9)
+    {
+        prompt();
+        ch = getChoice();
+        switch (ch)
+        {
+        case 1:
+            printList(head);
+            break;
+        case 2:
+            data=count(head);
+            printf("Size of Linked List : %d \n",data);
+            break;
+        case 3:
+            head=reverseList(head);
+            printf("The List has been REVERSED \n");
+            break;
+        case 4:
+            data = getData();
+            head=insertBeg(head,data);
+            break;
+        case 5:
+            data = getData();
+            head=insertEnd(head,data);
+            break;
+        case 6:
+            data = getData();
+            pos = getPos();
+            head = insert(head,data,pos);
+            break; 
+        case 7:
+            data = getData();
+            head = delete(head,data);
+            break;
+        case 9:
+            printf("Thank You \n");
+            break;
+        default:
+            printf("Please select a Valid Option ");
+            break;
+        }
+    }
+
+    return 0;
 }
