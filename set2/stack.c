@@ -23,6 +23,7 @@ Node *newNode(int data)
     }
     node->val = data;
     node->next = NULL;
+    return node;
 }
 
 Stack *newStack()
