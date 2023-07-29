@@ -20,24 +20,42 @@ TreeNode *newTreeNode(int data){
 }
 
 
+
+
+
+TreeNode* insertNode(TreeNode* node, int data) {
+    if (node == NULL) {
+        return newTreeNode(data);
+    } else {
+        if (data <= node->val) {
+            node->left = insertNode(node->left, data);
+        } else {
+            node->right = insertNode(node->right, data);
+        }
+        return node;
+    }
+}
+
+
+
+
 TreeNode* inputTree(){
 
-	int m;
-	printf("The size of input : ");
-	scanf("%d",&m);
 
 
-	printf("Enter the elements : ");
-	int A=(int*)malloc(m*sizeof(int));
-	int i=0;
-	for(i=0;i<m;i++)
-	{
-		scanf("%d",A+i);
-	}
+    TreeNode* root = NULL;
+    int data;
 
+    printf("Enter values for the binary tree, enter -1 to stop: \n");
+    while (1) {
+        scanf("%d", &data);
+        if (data == -1) {
+            break;
+        }
+        root = insertNode(root, data);
+    }
 
-
-
+	return root;
 
 };
 

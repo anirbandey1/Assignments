@@ -348,42 +348,6 @@ void prompt(){
 
 int main(){
 
-/*
-	TreeNode *root=newTreeNode(0);
-	TreeNode *n1=newTreeNode(1);
-	TreeNode *n2=newTreeNode(2);
-	TreeNode *n3=newTreeNode(3);
-	TreeNode *n4=newTreeNode(4);
-	TreeNode *n5=newTreeNode(5);
-	TreeNode *n6=newTreeNode(6);
-	TreeNode *n7=newTreeNode(7);
-	TreeNode *n8=newTreeNode(8);
-
-	root->left=n1;
-	root->right=n2;
-
-	n1->left=n3;
-	n1->right=n4;
-	n2->left=n5;
-	n2->right=n6;
-
-	n3->left=n7;
-	n3->right=n8;
-*/
-/*
-	TreeNode *root=NULL;
-	int i=0,n=5;
-	int temp;
-	for(i=1;i<n;i++){
-		scanf("%d",&temp);
-		root = insert(root,temp);
-	}
-	//insert(root)
-	preorderPrint(root);
-	inorderPrint(root);
-	postorderPrint(root);
-
-*/
 
 	printf("\nBinary Search Tree \n\n");
 

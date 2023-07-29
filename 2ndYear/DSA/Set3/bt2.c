@@ -117,11 +117,6 @@ int height(TreeNode* node)
 
 void levelorderPrint(TreeNode* root)
 {
-	
-	if(NULL==root){
-		printf("The root of the node is NULL \n");
-		return;
-	}
 
 	printf("Level Order Traversal : ");
 	printLevelOrder(root);
@@ -225,6 +220,7 @@ void prompt(){
 	printf("Enter 3 to print the Inorder Traversal \n");
 	printf("Enter 4 to print the Postorder Traversal \n");
 	printf("Enter 5 to print the Levelorder Traversal \n");
+	printf("Enter 6 to Count number of elements \n");
 	printf("Enter 7 to Search for an element \n");
 	printf("Enter 8 to Insert multiple elements \n");	
 	printf("Enter 10 to Exit the Program \n");	
@@ -265,6 +261,10 @@ int main(){
 				break;
 			case 5:
 				levelorderPrint(root);
+				break;
+			case 6:	
+				temp = count(root);
+				printf("Count of nodes : %d \n",temp);
 				break;
 			case 7:
 				data=getData();
