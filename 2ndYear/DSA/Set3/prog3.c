@@ -11,6 +11,10 @@ typedef struct TreeNode{
 	struct TreeNode *right;
 }TreeNode;
 
+
+int search(TreeNode *root,int key);
+
+
 TreeNode* newTreeNode(int data)
 {
 	TreeNode *node= (TreeNode*)malloc(1*sizeof(TreeNode));
@@ -212,6 +216,104 @@ TreeNode* insert(TreeNode*root,int key)
 
 }
 
+
+TreeNode * insertMany(TreeNode *root)
+{
+
+	int i,n,*arr ;
+	printf("Enter the number of elements to be inserted : ");
+	scanf("%d", &n);
+
+	if(n<=0) return root;
+
+	arr = calloc(n,sizeof(int));
+
+	printf("Enter the elements: ");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d", arr+i);
+	}
+
+	for(i=0;i<n;i++)
+	{
+		root = insert(root,arr[i]);
+	}
+
+	return root;
+
+}
+
+/* Given a non-empty binary search
+   tree, return the node
+   with minimum key value found in
+   that tree. Note that the
+   entire tree does not need to be searched. */
+TreeNode* minValueNode(TreeNode* node)
+{
+    TreeNode* current = node;
+ 
+    /* loop down to find the leftmost leaf */
+    while (current && current->left != NULL)
+        current = current->left;
+ 
+    return current;
+}
+ 
+/* Given a binary search tree
+   and a key, this function
+   deletes the key and
+   returns the new root */
+TreeNode* deleteNode(TreeNode* root, int key)
+{
+    // base case
+    if (root == NULL)
+        return root;
+ 
+    // If the key to be deleted
+    // is smaller than the root's
+    // key, then it lies in left subtree
+    if (key < root->val)
+        root->left = deleteNode(root->left, key);
+ 
+    // If the key to be deleted
+    // is greater than the root's
+    // key, then it lies in right subtree
+    else if (key > root->val)
+        root->right = deleteNode(root->right, key);
+ 
+    // if key is same as root's key,
+    // then This is the node
+    // to be deleted
+    else {
+        // node with only one child or no child
+        if (root->left == NULL) {
+            TreeNode* temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (root->right == NULL) {
+            TreeNode* temp = root->left;
+            free(root);
+            return temp;
+        }
+ 
+        // node with two children:
+        // Get the inorder successor
+        // (smallest in the right subtree)
+        TreeNode* temp = minValueNode(root->right);
+ 
+        // Copy the inorder
+        // successor's content to this node
+        root->val = temp->val;
+ 
+        // Delete the inorder successor
+        root->right = deleteNode(root->right, temp->val);
+    }
+    return root;
+}
+
+
+
 int getData()
 {
     printf("Enter the data : ");
@@ -234,10 +336,12 @@ void prompt(){
 	printf("Enter 2 to print the Preorder Traversal \n");
 	printf("Enter 3 to print the Inorder Traversal \n");
 	printf("Enter 4 to print the Postorder Traversal \n");
-	printf("Enter 5 to print the Insert an element \n");
+	printf("Enter 5 to Insert an element \n");
 	printf("Enter 6 to Search for an element \n");
 	printf("Enter 7 to Print the Inorder Successor and Predecessor of an element \n");
-	printf("Enter 9 to Exit the Program \n");	
+	printf("Enter 8 to Delete an Element \n");
+	printf("Enter 9 to Insert multiple elements \n");	
+	printf("Enter 10 to Exit the Program \n");	
 
 }
 
@@ -325,7 +429,14 @@ int main(){
 				data=getData();
 				inorderSucPre(root,data);
 				break;
+			case 8:
+				data=getData();
+				root = deleteNode(root,data);
+				break;
 			case 9:
+				root = insertMany(root);
+				break;
+			case 10:
 				exit(0);
 				break;
 
@@ -334,7 +445,7 @@ int main(){
 				break;
 		}
 
-	}while(choice!=9);
+	}while(choice!=10);
 
 	return 0;
 }

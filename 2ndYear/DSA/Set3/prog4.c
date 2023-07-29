@@ -14,9 +14,9 @@ void bubble_sort(int *array, int size);
 
 void quick_sort(int *array, int low, int high);
 
-void merge_sort(int *array, int low, int high);
+void merge_sort(int *array, int low, int high, int size);
 
-void heap_sort(int *array, int size);
+void heap_sort(int *array, int size, int length);
 
  
 
@@ -64,7 +64,8 @@ scanf("%d", &array[i]);
 
 // Display the menu and prompt the user to choose a sorting algorithm
 
-int choice;
+int choice = -1;
+
 
 printf("Select a sorting algorithm:\n");
 
@@ -116,13 +117,13 @@ break;
 
 case 5:
 
-merge_sort(array, 0, size - 1);
+merge_sort(array, 0, size - 1, size);
 
 break;
 
 case 6:
 
-heap_sort(array, size);
+heap_sort(array, size, size);
 
 break;
 
@@ -298,7 +299,7 @@ quick_sort(array, partition_index + 1, high);
 
 // Helper function for merge sort
 
-void merge(int *array, int low, int mid, int high) {
+void merge(int *array, int low, int mid, int high,int size) {
 
 int i, j, k;
 
@@ -366,7 +367,7 @@ k++;
 
 }
 
-print_array(array, high - low + 1); // Print the array after each pass
+print_array(array, size); // Print the array after each pass
 
 }
 
@@ -374,17 +375,17 @@ print_array(array, high - low + 1); // Print the array after each pass
 
 // Merge sort implementation
 
-void merge_sort(int *array, int low, int high) {
+void merge_sort(int *array, int low, int high,int size) {
 
 if (low < high) {
 
 int mid = low + (high - low) / 2;
 
-merge_sort(array, low, mid);
+merge_sort(array, low, mid, size);
 
-merge_sort(array, mid + 1, high);
+merge_sort(array, mid + 1, high, size);
 
-merge(array, low, mid, high);
+merge(array, low, mid, high, size);
 
 }
 
@@ -398,7 +399,7 @@ merge(array, low, mid, high);
 
 // Helper function for heap sort
 
-void heapify(int *array, int size, int root) {
+void heapify(int *array, int size, int root, int length) {
 
 int largest = root;
 
@@ -440,11 +441,11 @@ array[largest] = temp;
 
 // Recursively heapify the affected sub-tree
 
-heapify(array, size, largest);
+heapify(array, size, largest, length);
 
 }
 
-print_array(array, size); // Print the array after each pass
+print_array(array, length); // Print the array after each pass
 
 }
 
@@ -452,13 +453,13 @@ print_array(array, size); // Print the array after each pass
 
 // Heap sort implementation
 
-void heap_sort(int *array, int size) {
+void heap_sort(int *array, int size, int length) {
 
 // Build heap (rearrange array)
 
 for (int i = size / 2 - 1; i >= 0; i--) {
 
-heapify(array, size, i);
+heapify(array, size, i, length);
 
 }
 
@@ -478,7 +479,7 @@ array[i] = temp;
 
 // Call max heapify on the reduced heap
 
-heapify(array, i, 0);
+heapify(array, i, 0, length);
 
 }
 
