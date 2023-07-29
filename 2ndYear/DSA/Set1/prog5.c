@@ -129,16 +129,36 @@ int main()
 
 	Node *poly1 = NULL, *poly2 = NULL, *poly3 = NULL;
 
-	// Creation of 1st Polynomial: 3x^2 + 5x^1 + 6
-	poly1 = addnode(poly1, 3, 3);
-	poly1 = addnode(poly1, 6, 1);
-	poly1 = addnode(poly1, -9, 0);
 
-	// Creation of 2nd polynomial: 6x^1 + 8
-	poly2 = addnode(poly2, 9, 3);
-	poly2 = addnode(poly2, -8, 2);
-	poly2 = addnode(poly2, 7, 1);
-	poly2 = addnode(poly2, 2, 0);
+	 int n;
+        int i=0;
+        int coeff, exp;
+
+
+        printf("Enter the number of elements in 1st sparse polynomial : ");
+        scanf("%d",&n);
+
+        for(i=0;i<n;i++)
+        {
+                printf("Enter coefficient and power : ");
+                scanf("%d%d",&coeff,&exp);
+                if(coeff!=0) poly1 = addnode(poly1,coeff,exp);
+
+        }
+
+
+        printf("Enter the number of elements in 2nd sparse polynomial : ");
+        scanf("%d",&n);
+
+        for(i=0;i<n;i++)
+        {
+                printf("Enter coefficient and power : ");
+                scanf("%d%d",&coeff,&exp);
+                if(coeff!=0) poly2 = addnode(poly2,coeff,exp);
+
+        }
+	
+
 
 	// Displaying 1st polynomial
 	printf("1st Polynomial:- ");

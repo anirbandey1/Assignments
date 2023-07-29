@@ -18,6 +18,13 @@ Node *newNode(int data){
     return node;
 }
 
+Node *insertBeg(Node*head,int data){
+
+	Node* node = newNode(data);
+	node->next=head;
+	return node;
+}
+
 Node *insertEnd(Node *head,int data){
 
     Node *node=newNode(data);
@@ -36,6 +43,60 @@ Node *insertEnd(Node *head,int data){
 
 
 }
+Node *insert(Node*head,int data,int pos)
+{
+	if(pos==1){
+		head=insertBeg(head,data);
+		return head;
+	}
+
+	Node *prev,*ptr;
+	prev=NULL;
+	ptr=head;
+
+	int i;
+	for(i=1;i<pos;i++)
+	{
+		prev=ptr;
+		ptr=ptr->next;
+	}
+
+	Node *node=newNode(data);
+	prev->next=node;
+	node->next=ptr;
+
+	return head;
+}
+
+Node* delete(Node*head,int key){
+
+	Node*prev,*ptr,*temp;
+	prev=NULL;
+	ptr=head;
+
+	if(ptr->val==key){
+		temp=ptr;
+		ptr=ptr->next;
+		free(temp);
+		return ptr;
+	}
+
+	while(ptr && ptr->val!=key)
+	{
+		prev=ptr;
+		ptr=ptr->next;
+	}
+
+	if(ptr){
+		temp=ptr;
+		prev->next=ptr->next;
+		free(ptr);
+	}
+
+	return head;
+
+}
+
 
 Node *deleteEnd(Node *head)
 {
@@ -91,6 +152,27 @@ int dlistSize(Node *head)
     return cnt;
 }
 
+Node* reverseList(Node* head){
+
+	Node *prev,*ptr,*next;
+	ptr=head;
+	prev=next=NULL;
+
+	while(ptr)
+	{
+		next=ptr->next;
+		ptr->next=prev;
+		prev=ptr;
+		ptr=next;
+	}
+	return prev;
+}
+int getPos(){
+   printf("Enter the position : ");
+   int pos=0;
+   scanf("%d",&pos);
+   return pos;
+}
 int getData()
 {
     printf("Enter the data : ");
@@ -110,9 +192,13 @@ void prompt()
 {
     printf("\n");
     printf("Press 1 to Print the Doubly-Linked-List \n");
-    printf("Press 2 to Insert an element at the beginning of the Doubly-Linked-List \n");
-    printf("Press 3 to Delete an element from the end of the Doubly-Linked-List \n");
-    printf("Press 4 to Print the Doubly-Linked-List size \n");
+    printf("Press 2 to Insert an element at the end of the Doubly-Linked-List \n");
+    printf("Press 3 to Insert an element at the beginning of the Doubly-Linked-List \n");
+    printf("Press 4 to Insert an element at a particular position : \n");
+    printf("Press 5 to Delete an element from the end of the Doubly-Linked-List \n");
+    printf("Press 6 to Delete an element with a particular value \n");
+    printf("Press 7 to Print the Doubly-Linked-List size \n");
+    printf("Press 8 to Reverse the Doubly-Linked-List \n");
     printf("Print 9 to Exit \n");
 }
 
@@ -121,7 +207,7 @@ int main()
 
     Node *head=NULL;
     int ch = -1;
-    int data = -1;
+    int data = -1,pos=0;
     while (ch != 9)
     {
         prompt();
@@ -135,12 +221,29 @@ int main()
             data = getData();
             head=insertEnd(head, data);
             break;
-        case 3:
+       case 3:
+            data=getData();
+            head=insertBeg(head,data);
+            break;
+       case 4:
+            data=getData();
+            pos=getPos();
+            head=insert(head,data,pos);
+            break;
+        case 5:
             head = deleteEnd(head);
             break;
-        case 4:
+        case 6:
+            data=getData();
+            head=delete(head,data);
+            break;
+        case 7:
             data = dlistSize(head);
             printf("Doubly-Linked-List size is %d \n", data);
+            break;
+	case 8:
+            head = reverseList(head);
+            printf("Doubly Linked List has been Reversed \n");
             break;
         case 9:
             printf("Thank You \n");

@@ -108,13 +108,34 @@ int main()
 	struct Node *poly1 = NULL, *poly2 = NULL, *poly = NULL;
 
 	// Create first list of 5x^2 + 4x^1 + 2x^0
-	create_node(5, 2, &poly1);
-	create_node(4, 1, &poly1);
-	create_node(2, 0, &poly1);
+	
+	int n;
+	int i=0;
+	int coeff, exp;
 
-	// Create second list of -5x^1 - 5x^0
-	create_node(-5, 1, &poly2);
-	create_node(-5, 0, &poly2);
+
+	printf("Enter the number of elements in 1st sparse polynomial : ");
+	scanf("%d",&n);
+
+	for(i=0;i<n;i++)
+	{
+		printf("Enter coefficient and power : ");
+		scanf("%d%d",&coeff,&exp);
+		if(coeff!=0)	create_node(coeff,exp,&poly1);
+
+	}
+
+
+	printf("Enter the number of elements in 2nd sparse polynomial : ");
+	scanf("%d",&n);
+
+	for(i=0;i<n;i++)
+	{
+		printf("Enter coefficient and power : ");
+		scanf("%d%d",&coeff,&exp);
+		if(coeff!=0)create_node(coeff,exp,&poly2);
+
+	}
 
 	printf("1st Polynomial: ");
 	show(poly1);

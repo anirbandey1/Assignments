@@ -15,6 +15,7 @@ IntArray(int sz){
 	n=sz;
 	a=new int[n];
 }
+/*
 IntArray(const IntArray &arr){
 	n=arr.n;
 	free(a);
@@ -25,6 +26,8 @@ IntArray(const IntArray &arr){
 		a[i]=arr.a[i];
 	}
 }
+*/
+
 void input(){
 	cout<<"Enter the Size of Array : ";
 	cin>>n;

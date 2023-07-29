@@ -106,7 +106,7 @@ Node *insertEnd(Node*head,int data){
 
 Node *insert(Node*head,int data,int pos)
 {
-	if(pos==0){
+	if(pos==1){
 		head=insertBeg(head,data);
 		return head;
 	}

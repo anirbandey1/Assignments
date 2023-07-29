@@ -1,15 +1,10 @@
 class Base{
 
-};
 
-class Derived:Base{
 
 };
 
-int main(){
+class Derived extends Base{
 
-	Base ob1();
-	Derived ob2();
 
-	return 0;
-}
+};
