@@ -1,0 +1,195 @@
+/**
+ * ::------ TEAM DETAILS ------::
+   Team No: 17
+   Name: Manosrija Nasrin (L), Roll: 002111001117
+   Name: Spandan Ghatak, Roll: 002111001106
+   Name: Anirban Dey, Roll: 002111001108
+   Name: Saptarshi Bhattacharya, Roll: 002111001113
+ *
+ * Date: 02-08-2023
+ */
+
+/**
+ * ::------ ASSIGNMENT DETAILS ------::
+ * Assignment 1A: Familiarity with User and System level OS Commands
+ *
+ * Problem Definition:
+   Run the commands and validate the output
+ *
+ 	1. who			2. whoami
+	3. pwd			4. date
+	5. ls			6. mkdir - $mkdir dirname
+	7. clear		8. cd	- $cd dirname
+	9. cd.. 		10. rmdir - $rmdir dirname
+	11. cat – $cat filename
+	12. cp - $ cp source_file destination_file
+	13. mv- $ mv old_file new_file
+	14. rm – $ rm filename
+	15. stat - $ stat filename	
+	16. stty – $stty –a
+	17. tty			18. uname
+	19. umask		20. find
+	21. sort		22. ps
+	23. chmod 777 file1
+	24. chmod o-w file1
+
+ * ::------ INPUT DESCRIPTION ------::
+   This program takes no input.
+ *
+ * ::------ OUTPUT DESCRIPTION ------::
+ * The program displays the screenlog of the Unix commands mentioned in the assignment 1A.
+   (see the Assignment Details section).
+ */
+
+/**
+ * ::------ COMPILATION COMMAND ------::
+	No compilation required.
+ *
+ * ::------ EXECUTION SEQUENCE ------::
+ * Any of the following commands may be used to view the screen log in
+   the terminal: 
+	cat 17_1A.txt 
+	more 17_1A.txt 
+	less -r 17_1A.txt
+ */
+/**
+ * Sample Input: No input required
+ * Sample Output: Displays the screenlog of the given commands and their outputs.
+ */
+
+
+Script started on Wednesday 02 August 2023 03:49:00 PM IST
+[1m[32m<< TEAM17 >>[0m who
+root     :0           2023-03-24 16:50 (:0)
+be21106  pts/0        2023-08-02 14:57 (172.16.4.137)
+be21023  pts/1        2023-08-02 15:34 (172.16.4.143)
+be21032  pts/2        2023-08-02 14:41 (172.16.4.144)
+be21036  pts/3        2023-08-02 15:32 (172.16.4.142)
+be21152  pts/4        2023-08-02 15:43 (172.16.4.146)
+be21117  pts/5        2023-08-02 15:01 (172.16.4.185)
+be21145  pts/6        2023-08-02 15:01 (172.16.4.129)
+be21151  pts/8        2023-08-02 15:02 (172.16.4.131)
+be21150  pts/9        2023-08-02 15:05 (172.16.4.130)
+be21108  pts/10       2023-08-02 15:08
+be21108  pts/12       2023-08-02 15:08 (172.16.4.141)
+be21153  pts/13       2023-08-02 15:48 (172.16.4.176)
+be21036  pts/14       2023-08-02 15:44
+be21145  pts/15       2023-08-02 15:48
+be2106L  pts/16       2023-08-02 15:47 (172.16.4.152)
+be21117  pts/17       2023-08-02 15:49
+root     pts/42       2023-03-24 16:50 (:0)
+be2101L  pts/7        2023-08-02 15:41 (::ffff:172.16.4.132)
+[1m[32m<< TEAM17 >>[0m ami[K[K[Kwhoakl[K[Kmi
+be21117
+[1m[32m<< TEAM17 >>[0m pwd
+/home/usr/student/ug/yr21/be21117/OS/assign1
+[1m[32m<< TEAM17 >>[0m date
+Wed Aug  2 15:49:14 IST 2023
+[1m[32m<< TEAM17 >>[0m ls
+17_1A.txt  17_1B.c  [0m[38;5;27mdir[0m  [38;5;27mfiles[0m  textfiel.txt  textfile.txt
+[1m[32m<< TEAM17 >>[0m mkdir newdir
+[1m[32m<< TEAM17 >>[0m clear
+[1m[32m<< TEAM17 >>[0m cde [K[K dir
+[1m[32m<< TEAM17 >>[0m cd [K[K[Kls
+[0m[38;5;27mdir1[0m  [38;5;27mdir2[0m
+[1m[32m<< TEAM17 >>[0m cd ..
+[1m[32m<< TEAM17 >>[0m rmdir newdir/
+[1m[32m<< TEAM17 >>[0m cat textfile.txt 
+new line
+another line
+some other line
+more lines
+[1m[32m<< TEAM17 >>[0m cp textfile.txt test.txt
+[1m[32m<< TEAM17 >>[0m ls[K[Kls
+17_1A.txt  17_1B.c  [0m[38;5;27mdir[0m  [38;5;27mfiles[0m  test.txt  textfiel.txt  textfile.txt
+[1m[32m<< TEAM17 >>[0m mv test[K[Kxtfile.txt newtxt[K[Kext.txt
+[1m[32m<< TEAM17 >>[0m ls
+17_1A.txt  17_1B.c  [0m[38;5;27mdir[0m  [38;5;27mfiles[0m  newtext.txt  test.txt  textfiel.txt
+[1m[32m<< TEAM17 >>[0m rm textfiel.txt 
+[1m[32m<< TEAM17 >>[0m stat newtext.txt
+  File: ‘newtext.txt’
+  Size: 49        	Blocks: 8          IO Block: 4096   regular file
+Device: fd02h/64770d	Inode: 5101796042  Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 2880/ be21117)   Gid: ( 2835/  ugyr21)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2023-08-02 15:50:11.124211073 +0530
+Modify: 2023-08-02 15:45:56.974217523 +0530
+Change: 2023-08-02 15:50:55.115209956 +0530
+ Birth: -
+[1m[32m<< TEAM17 >>[0m stty -s[Ka[K[K[K
+speed 38400 baud; line = 0;
+-brkint -imaxbel iutf8
+[1m[32m<< TEAM17 >>[0m stty -a
+speed 38400 baud; rows 44; columns 74; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>;
+eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z;
+rprnt = ^R; werase = ^W; lnext = ^V; flush = ^O; min = 1; time = 0;
+-parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon
+-ixoff -iuclc -ixany -imaxbel iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0
+ff0
+isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
+echoctl echoke
+[1m[32m<< TEAM17 >>[0m tty
+/dev/pts/17
+[1m[32m<< TEAM17 >>[0m uname
+Linux
+[1m[32m<< TEAM17 >>[0m umask
+0022
+[1m[32m<< TEAM17 >>[0m find
+.
+./dir
+./dir/dir1
+./dir/dir1/new.txt
+./dir/dir2
+./17_1B.c
+./files
+./files/assign1
+./files/assign1/output.txt
+./files/assign2
+./files/assign2/env_vars
+./files/assign2/env_vars.c
+./17_1A.txt
+./test.txt
+./newtext.txt
+[1m[32m<< TEAM17 >>[0m sort test.txt 
+another line
+more lines
+new line
+some other line
+[1m[32m<< TEAM17 >>[0m cat es[K[Ktest.txt 
+new line
+another line
+some other line
+more lines
+[1m[32m<< TEAM17 >>[0m ps
+  PID TTY          TIME CMD
+14447 pts/17   00:00:00 bash
+14674 pts/17   00:00:00 ps
+[1m[32m<< TEAM17 >>[0m chmod 777 tset[K[K[Kest.txt 
+[1m[32m<< TEAM17 >>[0m stat test.txt
+  File: ‘test.txt’
+  Size: 49        	Blocks: 8          IO Block: 4096   regular file
+Device: fd02h/64770d	Inode: 5101796044  Links: 1
+Access: (0777/-rwxrwxrwx)  Uid: ( 2880/ be21117)   Gid: ( 2835/  ugyr21)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2023-08-02 15:51:41.331208783 +0530
+Modify: 2023-08-02 15:50:33.963210493 +0530
+Change: 2023-08-02 15:51:58.283208353 +0530
+ Birth: -
+[1m[32m<< TEAM17 >>[0m chmod 777 f[Kt[K[K[K[K[Ko-w test.txt [K[K[K[K[K[K[K[K[Knewtext.txt 
+[1m[32m<< TEAM17 >>[0m stat newtext.txt 
+  File: ‘newtext.txt’
+  Size: 49        	Blocks: 8          IO Block: 4096   regular file
+Device: fd02h/64770d	Inode: 5101796042  Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 2880/ be21117)   Gid: ( 2835/  ugyr21)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2023-08-02 15:50:11.124211073 +0530
+Modify: 2023-08-02 15:45:56.974217523 +0530
+Change: 2023-08-02 15:52:27.555207610 +0530
+ Birth: -
+[1m[32m<< TEAM17 >>[0m exit
+exit
+
+Script done on Wednesday 02 August 2023 03:52:39 PM IST
