@@ -9,7 +9,6 @@
 %
 % Solution :-
 
-
 % Knowledge base with animals and their characteristics as lists
 animal(lion, [carnivore, fur, mammals, 4]).
 animal(boar, [omnivore, fur, mammals, 4]).
@@ -26,6 +25,10 @@ animal(parrot, [herbivore, feathers, birds, 2]).
 ask_feature_value(Feature, Options, Value) :-
     write('Enter a value for '), write(Feature), write(Options), write(': '),
     read(Value).
+
+ask_feature_value('no_of_legs', '', NoOfLegs) :-
+    write('Enter the number of legs: '),
+    read(NoOfLegs).
 
 % Predicate to check if an animal has a specified feature
 animal_has_feature(Animal, Feature) :-
@@ -47,7 +50,7 @@ main :-
     % Initialize the list of valid animals with all animals
     findall(Animal, animal(Animal, _), AllAnimals),
     writeln('Initial list of valid animals: '),
-	writeln(AllAnimals), nl,
+    writeln(AllAnimals), nl,
     
     % Ask for feature values and update the list
     ask_feature_value('diet', ' [carnivore/herbivore]', Diet),
@@ -65,10 +68,10 @@ main :-
     writeln('Current list of valid animals: '),
     writeln(UpdatedAnimals3), nl,
 
-    ask_feature_value('no_of_legs', NoOfLegs), % Ask for number of legs
+    ask_feature_value('no_of_legs', '', NoOfLegs), % Ask for number of legs
     filter_valid_animals(UpdatedAnimals3, NoOfLegs, FinalValidAnimals),
 
     % Display the final list of valid animals
     writeln('Final list of valid animals: '),
-    writeln(FinalValidAnimals), nl.
+    writeln(FinalValidAnimals).
 
