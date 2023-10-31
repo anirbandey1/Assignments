@@ -1,3 +1,7 @@
+% Name - Anirban Dey
+% Roll - 002111001108
+
+
 % Define symptoms for various diseases
 symptom(fever).
 symptom(cough).
