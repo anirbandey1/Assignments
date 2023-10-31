@@ -22,11 +22,14 @@ CREATE TABLE IF NOT EXISTS patients (
 );
 ''')
 
+prolog.query('symptom(fever).')
+
 # Define a function for diagnosis
 def diagnose(symptoms):
     # Assert symptoms as facts in Prolog
     for symptom in symptoms:
         prolog.assertz(f'symptom({symptom}).')
+        # prolog.assertz('symptom(fever).')
 
     # Query Prolog for a diagnosis
     diagnosis = list(prolog.query('diagnose(Disease).'))
@@ -34,6 +37,7 @@ def diagnose(symptoms):
     # Remove asserted symptoms
     for symptom in symptoms:
         prolog.retract(f'symptom({symptom}).')
+        # prolog.retract(f'symptom{symptom}.')
 
     return [result['Disease'] for result in diagnosis]
 
