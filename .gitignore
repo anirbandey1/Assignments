@@ -11,7 +11,6 @@
 
 # CPP
 a.out
-input.txt
 output.txt
 gdb.txt
 build/
@@ -27,4 +26,7 @@ build/
 #others
 bash/
 
+# Python Virtual Environment
+.venv/
+venv/
 
