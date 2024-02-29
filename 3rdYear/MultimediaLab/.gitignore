@@ -3,6 +3,17 @@
 test_input*.*
 test_compressed_file*.*
 test_decompressed_file*.*
+
+text_input*.*
+text_compressed_file*.*
+text_decompressed_file*.*
+
+image_input*.*
+image_compressed_file*.*
+image_decompressed_file*.*
+
+image_input.bmp
+text_input.txt
 tmp*.*
 .venv/
 venv/
