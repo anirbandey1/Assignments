@@ -1,0 +1,13 @@
+# gitignore
+
+test_input*.*
+test_compressed_file*.*
+test_decompressed_file*.*
+tmp*.*
+.venv/
+venv/
+
+
+assets/*
+*.png
+*.bin
